@@ -209,3 +209,58 @@ This tool is written for Python 3.8+.
 - For pull requests: include a descriptive title and a short rationale; include examples/screenshots when the change affects rendering.
 
 ---
+## Example of a typical CLI session (illustrative)
+
+```
+$ python stock-display.py --exchange NSE --ticker RELIANCE
+[15:33:49] Fetching RELIANCE.NS (period=max, interval=1d)                                                                            stock-display.py:206
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                                   Reliance Industries Limited — NSE — Stock Snapshot  (As of 21-03-2026)                                   
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+──────────────────────────────────────────────────────────── SECTOR & INDUSTRY ─────────────────────────────────────────────────────────────
+Sector                            Energy
+Industry  Oil & Gas Refining & Marketing
+
+──────────────────────────────────────────────────────────── PRICE INFORMATION ─────────────────────────────────────────────────────────────
+LTP                                                                   ₹1,424.80   ▲ +₹11.80 (+0.84%)
+Open                                                                                       ₹1,425.00
+Previous Close (1 trading day ago)                                                         ₹1,413.00
+Day High / Low                                                               ₹1,420.30  —  ₹1,431.90
+                                    ₹1,420.30 ─────────────────●────────────────────────── ₹1,431.90
+                                                 (↑ 0.3% from low  |  ↓ 0.5% from high)             
+52W High / Low                                                               ₹1,114.85  —  ₹1,551.00
+                                    ₹1,114.85 ───────────────────────────────●──────────── ₹1,551.00
+                                                (↑ 27.8% from low  |  ↓ 8.1% from high)             
+
+─────────────────────────────────────────────────────────── TRADING INFORMATION ────────────────────────────────────────────────────────────
+Traded Volume  110.2 Lakh shares
+Traded Value        ₹1,569.89 Cr
+
+─────────────────────────────────────────────────────────── SHARES & MARKET CAP ────────────────────────────────────────────────────────────
+Shares Outstanding        1,35,325 Lakh
+Total Market Cap       ₹1,928,110.64 Cr
+Floating Stocks             66,056 Lakh
+Free Float Market Cap    ₹941,167.98 Cr
+
+───────────────────────────────────────────────────────────── KEY FUNDAMENTALS ─────────────────────────────────────────────────────────────
+EPS (TTM)       ₹60.19
+Dividend Yield   0.39%
+P/E Ratio        23.67
+P/B Ratio         2.29
+
+───────────────────────────────────────────────────────────────── RETURNS ──────────────────────────────────────────────────────────────────
+1D: ▲ +₹11.80 (+0.84%)                         5D: ▲ +₹47.70 (+3.46%)                         1M: ▲ +₹1.88 (+0.13%)                         
+2M: ▼ -₹35.57 (-2.44%)                         3M: ▲ +₹1.29 (+0.09%)                          6M: ▲ +₹201.54 (+16.48%)                      
+9M: ▲ +₹206.67 (+16.97%)                       YTD: ▲ +₹208.41 (+17.13%)                      1Y: ▼ -₹67.91 (-4.55%)                        
+2Y: ▲ +₹174.06 (+13.92%)                       3Y: ▲ +₹231.59 (+19.41%)                       4Y: ▲ +₹447.32 (+45.76%)                      
+5Y: ▲ +₹480.82 (+50.94%)                       10Y: ▲ +₹1,228.06 (+624.21%)                   Overall: ▲ +₹1,420.18 (+30759.53%)            
+
+──────────────────────────────────────────────────────────── CAGR (annualised) ─────────────────────────────────────────────────────────────
+2Y: ▲ +6.73%                                   3Y: ▲ +6.09%                                   4Y: ▲ +9.88%                                  
+5Y: ▲ +8.58%                                   10Y: ▲ +21.90%                                 Overall: ▲ +21.34%                            
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Source: yfinance / Yahoo Finance
+Notes: 1D and 5D use actual trading days. Calendar periods use the most recent trading price on or before the target date. Percentages are 
+rounded to two decimal places. CAGR is computed using the geometric mean formula.
+```
