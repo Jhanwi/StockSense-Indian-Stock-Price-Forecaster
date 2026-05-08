@@ -158,3 +158,33 @@ python stock-display.py --exchange NSE --ticker INFY --history-period 1y --histo
 - CAGR computed using geometric mean: `(Last / Start)^(1 / years) - 1`.
 
 ---
+## Computation details & numerical correctness
+
+- **Price selection**: When computing returns we prefer `Adj Close` to account for corporate actions (splits/dividends) when available. For presentation LTP we prefer real-time metadata when available but fall back to the most recent adjusted close.
+- **Returns**: `1D` and `5D` use index positions in the history (trading-day accurate). Calendar periods use the last available trading price on or before the requested date.
+- **CAGR**: Computed with the standard geometric mean formula. The tool uses `Decimal` to reduce floating rounding during intermediate division steps; the fractional exponentiation step uses `float` for the power operation for presentation-level accuracy.
+- **Rounding / presentation**: Percentages are rounded to two decimal places for clarity in management reports.
+
+---
+
+## Dependencies
+
+The project depends on the following primary Python packages:
+
+- `yfinance` — used for downloading market data and company metadata from Yahoo Finance.
+- `rich` — used to render colored, well-aligned terminal output (tables, rules, styled text and the small bars).
+- `pandas` — used for time series data handling and index/date arithmetic.
+- `python-dateutil` — used for reliable relative date arithmetic (months/years deltas).
+
+This tool is written for Python 3.8+.
+
+---
+
+## Limitations, caveats and data disclaimers
+
+- **Third-party data**: The tool relies on data provided by Yahoo Finance via `yfinance`. The project is not affiliated with Yahoo. Field names and availability can vary across symbols; some tickers (especially newly listed or low-liquidity ones) might have missing metadata or sparse history.
+- **Not for trading execution**: This tool is intended for reporting and research; it is **not** a trading platform and does not provide order execution. Do not rely solely on this output for live trading decisions.
+- **Delisted / thinly traded securities**: For new listings or delisted symbols, history may be insufficient to compute some returns/CAGR values; the output will show explicit reasons when values cannot be computed.
+- **Time-sensitivity**: Real-time quote fields may not always be present in metadata. When real-time metadata is absent, the tool falls back to the latest adjusted close from historical data.
+
+---
