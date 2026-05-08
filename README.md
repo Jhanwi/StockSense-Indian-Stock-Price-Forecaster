@@ -188,3 +188,24 @@ This tool is written for Python 3.8+.
 - **Time-sensitivity**: Real-time quote fields may not always be present in metadata. When real-time metadata is absent, the tool falls back to the latest adjusted close from historical data.
 
 ---
+## Troubleshooting & common questions
+
+- **"The script prints 'No history returned'."**  
+  - Possible causes: the ticker symbol is incorrect, delisted, or Yahoo has no data for that symbol. Confirm the symbol and, if needed, append `.NS` (NSE) or `.BO` (BSE).
+- **"Fields like EPS, float or dividend yield are missing."**  
+  - Those are optional metadata fields; not all tickers include them on Yahoo. The tool will display `-` for missing values.
+- **"I see a mismatch in 52W high/low."**  
+  - The code prefers metadata; if metadata is absent it computes 52-week high/low from historical closes. Differences may arise if metadata uses intra-day extremes rather than close prices.
+- **"Terminal output looks misaligned."**  
+  - Ensure your terminal width is at least 120 characters (the script uses a default width of 140). Narrow terminals may wrap or truncate output.
+
+---
+
+## Development, testing and contribution guidelines
+
+- Clone the repository and run the script locally with different tickers to validate output.
+- Add unit tests for arithmetic and date logic where practical.
+- Keep the user-facing output backward-compatible (column labels, order).
+- For pull requests: include a descriptive title and a short rationale; include examples/screenshots when the change affects rendering.
+
+---
