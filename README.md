@@ -265,3 +265,16 @@ Notes: 1D and 5D use actual trading days. Calendar periods use the most recent t
 rounded to two decimal places. CAGR is computed using the geometric mean formula.
 ```
 ![Result](result.png)
+
+
+## License
+
+This repository is distributed under the MIT License. See the `LICENSE` file in the repository for full license text.
+
+---
+
+## Contact
+
+For questions, issues, or contributions, please use the below link on the repository to contact me:
+
+[JHANWI-KUMARI](https://www.linkedin.com/in/jhanwi-kumari/)
