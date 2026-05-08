@@ -65,8 +65,8 @@ The tool is intended for reporting and research; it is not a trading platform.
 1. Clone the repository:
 
 ```bash
-git clone 
-cd 
+git clone https://github.com/Jhanwi/StockSense-Indian-Stock-Price-Forecaster.git
+cd Indian-Stock-Price-Forecaster
 ```
 
 2. Create and activate a Python virtual environment (recommended):
