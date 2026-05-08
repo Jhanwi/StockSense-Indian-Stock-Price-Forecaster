@@ -60,3 +60,63 @@ The tool is intended for reporting and research; it is not a trading platform.
 5. **Portable** — Single-file, CLI friendly; easy to run on common Python environments.
 
 ---
+## Quick start (install & run)
+
+1. Clone the repository:
+
+```bash
+git clone 
+cd 
+```
+
+2. Create and activate a Python virtual environment (recommended):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate       # macOS / Linux
+# .venv\Scripts\activate         # Windows PowerShell
+```
+
+3. Install required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+If you want to install the core dependencies directly:
+
+```bash
+pip install yfinance pandas python-dateutil rich
+```
+
+4. Run the tool:
+
+```bash
+python stock-display.py --exchange NSE --ticker RELIANCE
+```
+
+The tool will fetch data from Yahoo Finance and render the snapshot in your terminal.
+
+---
+
+## Usage examples
+
+Basic usage:
+
+```bash
+python stock-display.py --exchange NSE --ticker RELIANCE
+```
+
+Verbose mode with explanations for missing computations:
+
+```bash
+python stock-display.py --exchange NSE --ticker TCS --verbose --show-missing-reasons
+```
+
+Specify a narrower history window for quick testing:
+
+```bash
+python stock-display.py --exchange NSE --ticker INFY --history-period 1y --history-interval 1d
+```
+
+---
