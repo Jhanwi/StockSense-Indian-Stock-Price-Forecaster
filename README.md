@@ -120,3 +120,41 @@ python stock-display.py --exchange NSE --ticker INFY --history-period 1y --histo
 ```
 
 ---
+## Snapshot fields explained (plain language)
+
+**Header**
+- Company name, exchange (NSE/BSE), and the report date (the last available trading date).
+
+**LTP (Last Traded Price)**
+- Best available recent price. Prefer real-time metadata (if present); otherwise use the most recent historical close.
+
+**Open**
+- Opening price for the most recent trading day. Taken from metadata when available; otherwise from the latest history row.
+
+**Previous Close (1 trading day ago)**
+- Price from the previous trading day (trading-day accurate).
+
+**Day High / Low**
+- The highest and lowest prices observed in the most recent trading day (metadata preferred; otherwise from last history row).
+
+**Day range bar**
+- A compact horizontal bar showing where the current price sits between the day low and high; the bar includes a visible marker and percentage offsets.
+
+**52W High / Low**
+- Highest and lowest close prices over the last 52 weeks (metadata preferred; otherwise computed from historical closes).
+
+**Traded Volume / Traded Value**
+- Volume from the last row and approximate traded value (volume × last price).
+
+**Shares & Market Cap**
+- Shares outstanding and float (when available). Market cap uses metadata if present; otherwise it is estimated as shares_outstanding × last_price.
+
+**Key fundamentals**
+- EPS (TTM), Dividend Yield, P/E ratio and P/B ratio (if available in metadata).
+
+**Returns & CAGR**
+- 1D and 5D computed using actual trading rows (accurate to trading days).
+- Month/Year returns computed using the “price on or before” logic to avoid weekend/holiday issues.
+- CAGR computed using geometric mean: `(Last / Start)^(1 / years) - 1`.
+
+---
